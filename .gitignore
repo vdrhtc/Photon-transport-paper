@@ -1,0 +1,5 @@
+*.pkl
+*.idea*
+Pictures/Plotting/fitting data/*
+build/*
+*.ipynb
