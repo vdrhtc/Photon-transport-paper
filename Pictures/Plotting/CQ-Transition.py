@@ -32,16 +32,27 @@ class Fig3:
         meta_spec = fig.add_gridspec(ncols=4, nrows=1, wspace=.5)
 
         spec = gridspec.GridSpecFromSubplotSpec(1, 3, subplot_spec=meta_spec[0, 0:3])
+        oneDmetaspec = gridspec.GridSpecFromSubplotSpec(1, 2, subplot_spec=spec[0, 0:1])
 
         # Plot the transmission peaks in the linear regime
-        ax = fig.add_subplot(spec[0, 0])
-        ax.plot(real(trans_data), exp_freqs, ",", color="C0", alpha=0.3)
-        ax.plot(imag(trans_data), exp_freqs, ",", color="C1", alpha=0.3)
-        ax.plot(real(fit_data), exp_freqs, "-", color="C0")
-        ax.plot(imag(fit_data), exp_freqs, "-", color="C1")
+        ax = fig.add_subplot(oneDmetaspec[0, 0])
+        ax.plot(real(trans_data), exp_freqs, ",", color="gray", alpha=0.3)
+        ax.plot(real(fit_data), exp_freqs, "-", color="black", lw=1)
+
         ax.yaxis.set_major_locator(MaxNLocator(5))
         ax.set_ylabel("VNA frequency (GHz)")
-        ax.set_xlabel("Norm. Re, Im $S_{21}$")
+        ax.set_xlabel("Re $S_{21}$")
+        ax.set_ylim(3.8, 4)
+        ax.set_title("A - A", position = (1.1,1))
+        plt.text(-.9, 1.05, "(a)", fontdict={"name": "STIX"}, fontsize=17,
+                 transform=ax.transAxes)
+
+        ax = fig.add_subplot(oneDmetaspec[0, 1])
+        ax.plot(imag(trans_data), exp_freqs, ",", color="gray", alpha=0.3)
+        ax.plot(imag(fit_data), exp_freqs, "-", color="black", lw=1)
+        ax.yaxis.set_major_locator(MaxNLocator(5))
+        ax.set_yticklabels([])
+        ax.set_xlabel("Im $S_{21}$")
         ax.set_ylim(3.8, 4)
 
         # Plot the power scan theory and expetimental data
@@ -49,19 +60,45 @@ class Fig3:
         ax = fig.add_subplot(spec[0, 1])
         X = (10 ** (exp_data["Power [dBm]"] / 10)) * 1000
         Y = exp_data["Frequency [Hz]"]
-        ax.pcolormesh(X, Y / 1e9, log10(abs(exp_data["data"].T)), rasterized=True, cmap="RdBu_r")
+        mappable = ax.pcolormesh(X, Y / 1e9,
+                                 10*log10(abs(exp_data["data"].T))+10,
+                                 rasterized=True, cmap="RdBu_r")
         ax.set_xticklabels([])
         ax.set_xscale("log")
         ax.set_xlim((1 * 1e-3 / 2.1) ** 2 * 1e3, (100 * 1e-3 / 2.1) ** 2 * 1e3)
         ax.set_xlabel(r"VNA power (mW)")
         ax.set_yticklabels([])
+
+        ax.annotate("A", xy=(.3e-3, 3.825), xytext=(.3e-3, 3.805), ha="left", fontsize=10,
+                    arrowprops=dict(facecolor='black', width=.5, headwidth=3, headlength=3.5,
+                                    shrink=0.05))
+        ax.annotate("A", xy=(.3e-3, 3.975), xytext=(.3e-3, 3.99), ha="left", fontsize=10,
+                    arrowprops=dict(facecolor='black', width=.5, headwidth=3, headlength=3.5,
+                                    shrink=0.05))
+
+
+        plt.text(-.2, 1.05, "(b)", fontdict={"name": "STIX"}, fontsize=17,
+                 transform=ax.transAxes)
+
         ax = fig.add_subplot(spec[0, 2])
         X = (sim_data[0])
         Y = sim_data[1]
-        ax.pcolormesh(X * 1e3, Y, log10(abs(sim_data[2].T)), rasterized=True, cmap="RdBu_r")
+        mappable = ax.pcolormesh(X * 1e3, Y, 10*log10(abs(sim_data[2].T))/2,
+                                 rasterized=True, cmap="RdBu_r", vmax = 0)
         ax.set_yticklabels([])
         ax.set_xscale("log")
         ax.set_xlabel(r"$\Omega$ (MHz)")
+
+
+        cbaxes2 = fig.add_axes([0.4, .95, 0.15, .01])
+        cb = plt.colorbar(mappable, ax=ax, cax=cbaxes2, orientation="horizontal")
+        cb.ax.set_title(r"$|S_{21}|$ (dB)", position=(1.3, -4), fontsize=10)
+        cb.ax.xaxis.set_major_locator(MaxNLocator(5))
+        cb.ax.tick_params(axis='both', which='minor', labelsize=7)
+
+        plt.text(1.05, 1.05, "(c)", fontdict={"name": "STIX"}, fontsize=17,
+                 transform=ax.transAxes)
+
         X = [1.25]
         lw = 1
         ms = 3
@@ -194,7 +231,7 @@ class Fig3:
         axes[0].set_xlabel("$J/2\pi$ (MHz)")
         axes[2].set_ylabel("$(E_n - E_0)/h$ [GHz]")
         axes[2].yaxis.set_label_coords(-.325, -0.25)
-        plt.gcf().set_size_inches(10, 4)
+        plt.gcf().set_size_inches(11, 4)
         plt.savefig("../fig3.pdf", bbox_inches="tight")
 
 
