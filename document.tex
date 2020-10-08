@@ -73,18 +73,18 @@ superscriptaddress
 	\email{gleb.fedorov@phystech.edu}
 	
 	\affiliation{ 
-		Russian Quantum Center, Skolkovo village, Russia
+		Russian Quantum Center, National University of Science and Technology MISIS, 119049 Moscow, Russia
 	}%
 	\affiliation{ 
 		Moscow Institute of Physics and Technology, Dolgoprundiy, Russia
 	}
-	\affiliation{
-		National University of Science and Technology MISIS, Moscow, Russia
-	}%
+	\author{S. Remizov}
+	\affiliation{Dukhov Automatics Research 
+		Institute, (VNIIA), Moscow, Russia}
 
 	\author{I.A. Rodionov}
 	\affiliation{FMN Laboratory, Bauman Moscow 
-	State Technical University, Moscow, Russia}
+		State Technical University, Moscow, Russia}
 	\affiliation{Dukhov Automatics Research 
 	Institute, (VNIIA), Moscow, Russia}
 
@@ -99,7 +99,12 @@ superscriptaddress
 	Holloway, University of London, Egham, Surrey 
 	TW20 0EX, United Kingdom}
 \affiliation{National Physical Laboratory, Teddington, TW11 0LW, United Kingdom}
-%
+
+	\author{A.V. Ustinov}
+	\affiliation{ 
+		Russian Quantum Center, National University of Science and Technology MISIS, 119049 Moscow, Russia
+	}
+	\affiliation{Physikalisches Institut, Karlsruhe Institute of Technology, 76131 Karlsruhe, Germany}
 	
 	
 	\date{\today}% It is always \today, today,
@@ -119,7 +124,7 @@ There has been increased effort over recent years in analog simulation of variou
 
 Numerous theoretical studies propose a new possible direction: controllable light-matter interaction and Floquet engineering to model periodically-driven Hamiltonians and their non-equilibrium dynamics \cite{Goldman2014, eisert2015quantum, Zippilli2015, kyriienko2018floquet, franca2020simulating}. Particularly, a recent study has shown that this approach may open new ways for quantum supremacy \cite{tangpanitanon2019quantum}.
 
-In this Letter, we present a proof-of-principle device to model non-equilibrium steady-state boson transport through a Bose-Hubbard chain.  Transmission properties of artificial materials composed of qubits attracted theoretical research before \cite{Zagoskin2016, viehmann2013observing, Greenberg2015, Fistul2019, Biella2015}; however, apart from purely academic interest, our experiment shows that continuously driven transmon arrays are currently very simple to design and control, and thus seem to be suitable for supremacy-scale Floquet quantum simulations. \textbf{platform for matrix product states, more about blockade}
+In this work, we present a proof-of-principle device to model non-equilibrium steady-state boson transport through a Bose-Hubbard chain.  Transmission properties of artificial materials composed of qubits attracted theoretical research before \cite{Zagoskin2016, viehmann2013observing, Greenberg2015, Fistul2019, Biella2015}; however, apart from purely academic interest, our experiment shows that continuously driven transmon arrays are currently very simple to design and control, and thus seem to be suitable for supremacy-scale Floquet quantum simulations. Besides, such systems may be useful to test the accuracy of methods of contraction of the Hilbert space such as the MPS and tensor networks  \cite{Biella2015, orell2019probing}.
 
 The layout of the chip is shown in \autoref{fig:scheme}~(a). Similar to previous experiments, we use a chain of directly coupled Xmon transmons tunable via individual flux lines. The distinctive feature is the large interdigitated capacitors to couple the edge transmons strongly to the input and output waveguides and allow measurement of the microwave transmission through the chain. The individual readout resonators are used only for calibration purposes in our experiment.
 
@@ -204,18 +209,18 @@ To study these purely quantum spectral features in greater detail, we have perfo
 	\label{fig:eigenstates}
 \end{figure*}
 
-To further study the energy structure and the non-equilibrium dynamics of the system while it transitions from the classical to quantum regime, we use a direct transmission experiment with fixed degenerate configuration of the transmons, $\omega_i/2\pi = 3.9$ GHz. In the linear regime, we estimate the coupling to the transmission lines and internal dissipations from the fit of the complex transmission coefficient predicted by the linear model which is shown in \autoref{fig:cq_transition}~(a). Using these data, we also estimate the overall attenuation in the measurement system and extract only the transmission through the attenuation and amplification chain. We find that the third mode has nearly unity transmission. This is expected, as from \autoref{fig:transmission}~(a) it is only coupled to a single ``bulk'' transmon, and thus has the least internal dissipation. Since in our full linear model it is impossible to include the pure dephasing separately from the internal dissipation, the relaxation rates from the fit are somewhat larger than true values: we estimate $\gamma_i$ to be [19.9, 1.18, 0.60, 0.95, 18.4] $\mu\text{s}^{-1}$. While the edge ones are probably very accurate, the values for the three internal transmons are determined only approximately. A more subtle method is required to measure the relaxation and pure dephasing rates for them: one obvious way would be to measure them using dispersive readout while all other transmons are far detuned. Also, with the fit we can estimate the disorder in the system; we find $\omega_i/2\pi$ to be [3.878, 3.897, 3.899, 3.902, 3.921] GHz. The disorder from the fit with the linear solution is larger than the disorder expected from the fit in \autoref{fig:transmission}~(a),(b) but still much less than $J$. It is quite possible that the fitted values from the 1D scan are of lower accuracy since the algorithm has to determine 13 parameters from just two curves.
+To further study the energy structure and the non-equilibrium dynamics of the system while it transitions from the classical to quantum regime, we use a direct transmission experiment with fixed degenerate configuration of the transmons, $\omega_i/2\pi = 3.9$ GHz. In the linear regime, we estimate the coupling to the transmission lines and internal dissipations from the fit of the complex transmission coefficient predicted by the linear model which is shown in \autoref{fig:cq_transition}~(a). Using these data, we also estimate the overall attenuation in the measurement system and extract only the transmission through the attenuation and amplification chain. We find that the third mode has nearly unity transmission. This is expected, as from \autoref{fig:transmission}~(a) it is only coupled to a single ``bulk'' transmon, and thus has the least internal dissipation. Since in our full linear model it is impossible to include the pure dephasing separately from the internal dissipation, the relaxation rates from the fit are somewhat larger than true values: we estimate $\gamma_i$ to be [19.9, 1.18, 0.60, 0.95, 18.4] $\mu\text{s}^{-1}$. While the edge ones are probably very accurate, the values for the three internal transmons are determined only approximately. A more subtle method is required to measure the relaxation and pure dephasing rates for them: one obvious way would be to measure them using dispersive readout while all other transmons are far detuned. Also, with the fit we can estimate the disorder in the system; we find $\omega_i/2\pi$ to be [3.878, 3.897, 3.899, 3.902, 3.921] GHz. The disorder from the fit with the linear solution is significant but still much less than $2\sqrt{3}J$. We also find the disorder from the fit similar to \autoref{fig:transmission} at 3.9 GHz lower, so it is quite possible that the fitted values from the 1D scan are of lower accuracy than extracted since the algorithm has to determine 13 parameters from just two curves.
 
-Having the transmons in the degeneracy point, we increase the power of the incident radiation and observe how the spectral lines change their shape and how the multiphoton transitions to the higher energy bands start to appear. The experimental data agrees very well with the numerical steady-state simulation of the five three-level transmons, as can be seen in \autoref{fig:cq_transition}~(b). To achieve visual agreement between the data (where there is enough signal) and the simulation, one should include at least 120 lowest energy states in the model.  Even though the selection rules of the system do not allow us to see all possible multiphoton transitions, we can clearly discern the increase of the density of states and their randomness with increasing band number. At high driving power, the repulsion of energy levels of transmon system gives rise to quasi-chaotic behavior of dips in frequency dependence of transmission amplitude. The frequencies of transitions up to four-photon are shown with colored dashes, which can be identified with the energy bands shown in \autoref{fig:cq_transition}~(c) calculated using the fitted parameters of the model. These effects were also predicted theoretically before \cite{Biella2015} and may be used to prepare various mixtures of many-body states.
+Having the transmons in the degeneracy point, we increase the power of the incident radiation and observe how the spectral lines change their shape and how the multiphoton transitions to the higher energy bands start to appear. The experimental data agrees very well with the numerical steady-state simulation of the five three-level transmons using the parameters extracted earlier, as can be seen in \autoref{fig:cq_transition}~(b). To capture all the resonances and attain visual agreement between the data (where there is enough signal) and the simulation, one should include around 120 relevant energy states in the model. We put $\gamma_\phi^{(i)} = 0$ since there is no way for us to estimate them independently. Even though the selection rules of the system do not allow us to see all possible multiphoton transitions, we can clearly discern the increase of the density of states and their randomness with increasing band number. At high driving power, the repulsion of energy levels of transmon system gives rise to quasi-chaotic behavior of dips in frequency dependence of transmission amplitude. The frequencies of transitions up to four-photon are shown with colored dashes, which can be identified with the energy bands shown in \autoref{fig:cq_transition}~(c) calculated using the fitted parameters of the model. These effects were also predicted theoretically before \cite{Biella2015} and may be used to prepare various mixtures of many-body states.
 
 Besides the multiphoton transitions which appear as new resonances in the spectrum of the system, the non-classical behavior of the device reveals itself also in the peculiar evolution of the shapes of the classical normal mode resonances. As the driving become stronger, the Autler-Townes splitting occurs leading to dips at these frequencies. In addition, at relatively large driving, multiphoton effects also suppress transmission amplitude at characteristic frequencies related to such processes. The further increase the driving power results in effective shifts of these frequencies due to ``dressing'' of transmon states by incident light. This effect is in fact nothing more than the photon blockade studied extensively in the domain of single-atom lasers \cite{birnbaum2005photon} and predicted for a similar system before \cite{Biella2015}.
 
-To get a deeper insight into the nature of the irregular behaviour of the energy bands shown in \autoref{fig:cq_transition}~(c), we plot in \autoref{fig:eigenstates} several examples of the eigenstates with different energies shown above the plots. As we decompose them onto the unperturbed basis, we see that only the lowest eigenstates corresponding to the classical eigenmodes show structure and symmetry. In \autoref{fig:eigenstates}~(a), $E_1$, we plot of them just the lowest one which has even symmetry and the lowest value of the effective crystal wavelength. Note that the solution of the stationary Shrödinger equation for the lowest modes is identical to the solution of the secular equation of analytical mechanics, which is a manifestation of the Heisenberg correspondence principle for coupled oscillators. The lowest normal mode has nearest neighbors oscillating in antiphase so that all coupling capacitors become charged. But of course the analogy is not fully accurate, as the basis states in the quantum superpositions are the Fock single-photon states while the classical components of the normal mode would be what is called the coherent states in quantum mechanics. Moreover, if we stay with the analogy between our system and the system of trapped bosons, which are physical particles and not just abstract states of an oscillatory system, the intuitive sense of classical analytical mechanics would completely vanish.
+To get a deeper insight into the nature of the irregular behaviour of the energy bands shown in \autoref{fig:cq_transition}~(c), we plot in \autoref{fig:eigenstates} several examples of the eigenstates with different energies shown above the plots. As we decompose them onto the unperturbed basis, we see that only the lowest eigenstates corresponding to the classical eigenmodes posses structure and symmetry. In \autoref{fig:eigenstates}~(a), $E_1$, we plot of them just the lowest one which has even symmetry and the lowest value of the effective crystal wavelength. Note that the solution of the stationary Shrödinger equation for the lowest modes is identical to the solution of the secular equation of analytical mechanics, which is a manifestation of the Heisenberg correspondence principle for coupled oscillators. The lowest normal mode has nearest neighbors oscillating in antiphase so that all coupling capacitors become charged. But of course the analogy is not fully accurate, as the basis states in the quantum superpositions are the Fock single-photon states while the classical components of the normal mode would be what is called the coherent states in quantum mechanics. Moreover, if we stay with the analogy between our system and the system of trapped bosons, which are physical particles and not just abstract states of an oscillatory system, the intuitive sense of classical analytical mechanics would completely vanish.
 
-Even worse is the situation for the higher levels. One cannot find anymore any bridge to the classical physics for these states. Moreover, we know that the number of degrees of freedom in our system with certainty brings it into chaos in the classical limit, and such systems are notoriously difficult to calculate semiclassically \cite{wintgen1992semiclassical}. We check that the energy spacings indeed follow the Wigner-Dyson distribution of the GOE 
-\cite{bohigas1984characterization, livan2018introduction} with vanishing probability to find level intersections. Unfortunately, due to the small number of sites in the chain, one has to include many high-energy states into the histogram which are not accessible in our experiment. Nevertheless, based on the good agreement between the numerical simulation and the experimental data, there remains little doubt that the used model is inappropriate. 
+Even worse is the situation for the higher eigenstates. One cannot find anymore any bridge to the classical physics for these states. Moreover, we know that the number of degrees of freedom in our system with certainty brings it into chaos in the classical limit, and such systems are notoriously difficult to calculate semiclassically \cite{wintgen1992semiclassical}. We check that the energy spacings indeed resembles the Wigner-Dyson distribution of the GOE 
+\cite{bohigas1984characterization, livan2018introduction} with vanishing probability to find level intersections. Unfortunately, due to the small number of sites in the chain, we have to include many high-energy states into the histogram which are not accessible in the experiment. Nevertheless, based on the good agreement between the numerical simulation and the experimental data, there remains little doubt that the used model is appropriate. Surprisingly, as we have checked numerically, the system with ideal transmons without any disorder in $U$ and in $\omega_i$ at the degeneracy point exhibits Poissonian distibution of the level spacings. Probably, for such a special set of parameters this system would not be non-integrable and thus chaotic in the classical limit \cite{kolovsky2004quantum,kim2014testing}.
 
-The high energy states couple stronger to each other due to the growing matrix elements of the interaction Hamiltonian, and the bands existing separately from each other for $J=0$ become smeared out.  In \autoref{fig:eigenstates}~(a), $E_9$ is the lowest state from the doublon band (orange states containing two photons on a single site) and is still relatively isolated from other bands. However, $E_{20}$ which is the highest-lying in the two-photon subspace, contains already a significant contribution from the doublon band. Similar is the situation in \autoref{fig:eigenstates}~(b), where we find an isolated trion band in $E_{21}$ and a large entangled state $E_{55}$ (three-photon band upper edge). Finally, in \autoref{fig:eigenstates}~(c) a notable example is the 85\textsuperscript{th} energy state, which is a massive superposition of uncoupled states containing various photon number states encompassing nearly the full entirety of the four-excitation basis. 
+The high energy states couple stronger to each other due to the growing matrix elements of the interaction Hamiltonian, so the variety of the high-energy bands existing separately from each other for $J=0$ become smeared out even for relatively small $J$.  In \autoref{fig:eigenstates}~(a), $E_9$ is the lowest state from the doublon band (orange states containing two photons on a single site) and is still relatively isolated from other bands. However, $E_{20}$ which is the highest-lying in the two-photon subspace, contains already a significant contribution from the doublon band. Similar is the situation in \autoref{fig:eigenstates}~(b), where we find an isolated trion band in $E_{21}$ and a large entangled state $E_{55}$ (three-photon band upper edge). Finally, in \autoref{fig:eigenstates}~(c) a notable example is the 85\textsuperscript{th} energy state, which is a massive superposition of uncoupled states containing various photon number states encompassing nearly the full entirety of the four-excitation basis. 
 
 It is obvious that eigenstate coefficients in the uncoupled basis are becoming more and more random as the energy is increased and involve more and more basis states. Of course, the appearance of the histograms may change if the basis vectors are reordered. We choose the ordering of the x-axis so that the basis vectors from the lowest energy bands come leftmost, but the ordering inside the bands is arbitrary. However, one can see, for example, that for the state $E_{20}$ in \autoref{fig:eigenstates}~(a) it is not possible to rearrage the green section so that it would have any kind of symmetry. This effect remains even for $J\ll U$ when orange and green bands will be nearly totally uncoupled; moreover, when this condition is not fullfilled, the coupling between adjacent bands introduces even more disorder in the spectrum. So the randomness in the higher energy eigenstates seems to be genuine, irreducible.
 
@@ -225,14 +230,28 @@ It is obvious that eigenstate coefficients in the uncoupled basis are becoming m
 
 \begin{figure}
 	\includegraphics[width=1\linewidth]{Pictures/mbl}
-	\caption{Localization and loss of transmission with increasing disorder}
+	\caption{\textbf{(a)} Raw transmission data for $\sigma = 6,\, 40$ MHz and 100 realizations of disorder; absolute value of the transmission is shown with color. \textbf{(b)} Localization and disappearance of transmission with increasing disorder. Each curve shows the absolute value of the averaged transmission over the Gaussian disorder realizations with a certain standard deviation $\sigma$ shown in the legend. Each next curve is offset downwards for better visibility.}
 	\label{fig:mbl}
 \end{figure}
 
+Since we have good control of the individual transmon frequencies, we can investigate experimentally how the system behaves when with changing of disorder. We perform an experiment similar to what was done before numerically in \cite{orell2019probing}: a certain disorder variance is chosen, then the random frequency $\omega + \delta \omega$ is assigned to each transmon where $\delta\omega \in \mathbb N(0,2\pi\sigma)$ and $\omega/2\pi = 3.9$ GHz. Then the transmission is recorded, and the full process is repeated 100 times. 
+In \autoref{fig:mbl}~(a) we show two examples of the raw transmission data for  $\sigma = 6,\ 40$ MHz. As one can see, for the smaller standard deviation of the target frequencies, the eigenmodes stay relatively unchanged while for the larger the structure is lost completely.
 
-Since we have good control of the frequencies of the individual qubits, we can can model various strength of disorder in the system. 
+The resulting curves for several values of the standard deviation are shown in \autoref{fig:mbl}~(b). One can see that when the noise in the transmon frequencies reaches the coupling strength $J/2\pi$, the transmission vanishes on average. This effect is closely connected with the many-body localization phenomenon, as the excitation of the first qubit on average does not reach the last qubit, and reminds of the superconductor-insulator transition \cite{bruder1993superconductor}. However, as we only use the lowest excited modes of the system in the linear classical regime, we argue that there is nothing inherently quantum in the observed effect. Usually it is expected that a system of coupled linear oscillators would not thermalize if a single normal mode is excited \cite{deutsch2018eigenstate}. In contrast, when a single oscillator is excited, it will eventually transmit its energy to others, and the behaviour of such system should be similar to the one tested for chains of coupled transmons before \cite{Yan2019, ma2019dissipatively} for low disorder configurations and single-photon states; the observed values would then be not the populations of the single-transmon Fock-states but the amplitudes of the oscillations at each site.
 
+\section{Discussion}
 
+We have studied classical and quantum photon transport through a chain of five transmons coupled capacitively to each other and to two transmission lines at its edges. We have demonstrated experimentally that the behaviour of the single-photon subspace of the system for low driving powers does not deviate from the classical normal mode theory which is expected from the correspondence principle. However, an increase of the incident photon flux beyond the dissipation rate caused by the coupling of the system to the transmission lines reveals the quantum nature of the system through the photon blockade and multiphoton transitions to many-body states. The classical theory then fails, and one can only resort to numerical solution of the master equation to find the non-equilibrium steady state and calculate the expectation value for the transmission coefficient via the input-output theory. We have shown that our system is very well described by the Bose-Hubbard model including up to four excitations total and three excitations max. per site, meaning that around 100 basis states are required for the simulation. We find that the numerical solution fully reproduces the complex structure of the trasmission dips even though the noise in the measurement system prohibits us from reaching the chaotic region.
+
+Based on the good agreement between the numerical simulation and the experimental data, we examine the coefficients of some of the eigenstates obtained using our model in the uncoupled basis. We show that there is no structure in the eigenstates above the single-photon subspace which reproduces the classical normal mode vectors and that the decomposition coefficients become quite random for the many-body eigenstates. At the same time, we see that even though the uncoupled energy bands become mixed with each other, many eigenstates are only superpositions of the intra-band states. But nevertheless it is possible to find the states which are large delocalized superpositions and include nearly all states in the $n$-photon subspaces. The statistics of the energy levels resembles the Wigner-Dyson distribution for the model whose parameters we extract from the experimental data while for an ideal system it is Poissonian. We do not know yet how to interpret these facts since in the experiment the disorder is quite small, and the change in the level distribution should not be so drastic; we will further investigate this problem.
+
+Finally, we have shown how controllable disorder can be introduced in the system and how it affects the photon transport. As expected, we find that the transmission averaged over disorder realizations ceases when the standard deviation of the transmon frequencies reaches the interaction strength. In the language of quantum mechanics, this means that only the driven transmon has non-zero average population, while the others are not excited. However we want to emphasize that in our configuration this effect may be as well explained by the classical mechanics of coupled linear oscillators. So a clear distinction should always be made between cases where quantum mechanics is necessary and the classical mechanics is enough.
+
+We expect that the devices similar to what is presented here will be useful to model non-equilibrium systems. Notably, direct steady state simulations even for such a small chain are rather challenging and are possible only when on can move to the rotating frame. Therefore, if one applies several signals of different frequencies to such a device, moving to the rotating frame will become impossible, and the searching the steady state will pose a significant problem. This is the key idea of the Floquet simulators aimed at an alternative way quantum supremacy. While our device only allows to find an expectation value of the lowering operator at the last site, one could imagine that there are ways to endcode the solution of some problem into it.
+
+\section{Acknowledgements}
+
+We gratefully acknowledge valuable discussions with I.S. Besedin and A.V. Ustinov. We thank  A. A. Dobronosova, D. O. Moskalev, A. A. Pishchimova, E. I. Malevannaya for the fabrication of the samples for the experiment. The investigation was conducted with the support of Russian Science Foundation, Grant No. 16-12-00070. Devices/Samples were fabricated at the BMSTU Nanofabrication Facility (Functional Micro/Nanosystems, FMNS REC, ID 74300)
 
 
 \appendix
@@ -247,14 +266,14 @@ In the linear regime with no pure dephasing, the Langevin equations for the stea
 0 &= i(\omega_5 - \omega_d)\hat b_5^\dag - \gamma_5/2 \hat b_5^\dag + i J\hat b_4^\dag,
 \end{aligned} 
 \end{equation}
-with $j = 2,3,4$. The solution of this system shown as the model in \autoref{fig:cq_transition}~(a) is too complex to display; however, for the ideal case it becomes rather simple:
+with $j = 2,3,4$ and omitting zero-photon fluctuations. The solution of this system shown as the model in \autoref{fig:cq_transition}~(a) is too complex to display; however, for the degenerate case it becomes rather simple:
 \begin{equation}
-\hat b_{{5}}^\dag={\frac {4\,i{J}^{4}\sqrt {\Gamma} \hat b_{in}^\dag}{ \left( i\Delta\,
-\Gamma+2\,{\Delta}^{2}-2\,{J}^{2} \right)  \left( i{\Delta}^{2}
-\Gamma-2\,i{J}^{2}\Gamma+2\,{\Delta}^{3}-6\,\Delta\,{J}^{2
+\hat b_{{5}}^\dag={\frac {4\,i{J}^{4}\sqrt {\Gamma} \hat b_{in}^\dag}{ \left( i\delta\,
+\Gamma+2\,{\delta}^{2}-2\,{J}^{2} \right)  \left( i{\delta}^{2}
+\Gamma-2\,i{J}^{2}\Gamma+2\,{\delta}^{3}-6\,\delta\,{J}^{2
 } \right) }}.
 \end{equation}
-Here, $\Delta = \omega_d - \omega$. For the case of strong coupling, $J\gg \Gamma$, one can find that the poles of this expression are at $0, \pm J, \pm \sqrt 3 J $. This is a particular case of a more general statement considering the crystal dispersion relation: for a system of size $N$, the crystal momentum takes $N$ values $k = \frac{2 \pi}{N+1} m,\ m=\pm 1, \pm 2... m \leq N/2,\ m\in \mathbb{Z}\  \cup\ {0}$ if $ N $ is odd. Then the corresponding dispersion relation is $E/\hbar = \omega + 2 J \sin k/2$.
+Here, $\delta = \omega_d - \omega$. For the case of strong coupling, $J\gg \Gamma$, one can find that the poles of this expression are at $0, \pm J, \pm \sqrt 3 J $. This is a particular case of a more general statement considering the crystal dispersion relation: for a system of size $N$, the crystal momentum takes $N$ values $k = \frac{2 \pi}{N+1} m,\ m=\pm 1, \pm 2... m \leq N/2,\ m\in \mathbb{Z}\  \cup\ {0}$ if $ N $ is odd. Then the corresponding dispersion relation is $E/\hbar = \omega + 2 J \sin k/2$.
 
 
 \section{Two-qutrit analytical solution}
@@ -268,7 +287,7 @@ Here $i,\ i'$ correspond to the states of the first transmon and $j,\ j'$ of the
 	\begin{align*}
 	\langle\sigma_{{\rm st},2} \rangle
 	=&\,
-	tr  \sigma_{2}  \rho_{\rm st}
+	\text{Tr} \sigma_{2}  \rho_{\rm st}
 	=
 	\rho^{11|21}_{\rm st}
 	+
@@ -285,19 +304,19 @@ Here $i,\ i'$ correspond to the states of the first transmon and $j,\ j'$ of the
 	\right)
 	=
 	-
-	\frac{16 f J}{16 J^2 + (\gamma - 4 i \delta)^2} -
+	\frac{16 \Omega J}{16 J^2 + (\Gamma - 4 i \delta)^2} -
 	\\
 	- &\,
-	\frac{4096 f^3 J^3 (\alpha -i \gamma -4 \delta )}{(2 \alpha -i \gamma \
-		-4 \delta ) \left(16 J^2+(\gamma -4 i \delta )^2\right) \left(16 \
-		J^2+(\gamma +4 i \delta )^2\right) \left(16 J^2+(\gamma -4 i \delta ) \
-		(2 i \alpha +\gamma -4 i \delta )\right)}
+	\frac{4096 \Omega^3 J^3 (U -i \Gamma -4 \delta )}{(2 U -i \Gamma \
+		-4 \delta ) \left(16 J^2+(\Gamma -4 i \delta )^2\right) \left(16 \
+		J^2+(\Gamma +4 i \delta )^2\right) \left(16 J^2+(\Gamma -4 i \delta ) \
+		(2 i U +\Gamma -4 i \delta )\right)}
 	+
 	\cdots
 	\end{align*}
 \end{widetext}
-where $\delta = \omega - \varepsilon$ is a detuning. We stress that, in this expansion, each element is calculated in its leading order with respect to $f$. For the sake of simplicity, we consider the case $\gamma \to 0$. In this limit the linear in $f$ term has two poles $\delta = \pm J$ which we attribute to single-photon resonances. The third order term has three additional poles  $\delta = \alpha/2$, $\delta =(\alpha \pm \sqrt{16 J^2 + \alpha^2})/4$ which are attributed to the two-photon process. In fifth order there will be additional three-photonic pole at
-$\delta = (\alpha \pm 2J)/3$. The result of the numerical calculation of $\langle\sigma_{{\rm st},2}\rangle$ for different $f$ and $\omega$ is represented in Fig. \ref{fig:2transmon}. As one can see, with the increase of driving power, when driving power become of order of damping, dips appear at frequencies we have determined. This feature is expectable for multi-photonic processes and it is due to effective inverse occupation of the third transmon levels. It occurs when the occupancy of the transmon third level exceeds a second level occupancy, that results in effective suppression of a single-photon process.
+where $\delta = \omega_d - \omega$ is the detuning. We stress that, in this expansion, each element is calculated in its leading order with respect to $\Omega$. For the sake of simplicity, we consider the case $\Gamma \to 0$. In this limit the linear in $\Omega$ term has two poles $\delta = \pm J$ which we attribute to single-photon resonances. The third order term has three additional poles  $\delta = U/2$, $\delta =(U \pm \sqrt{16 J^2 + U^2})/4$ which are attributed to the two-photon process. In fifth order there will be additional three-photonic pole at
+$\delta = (U \pm 2J)/3$. The result of the numerical calculation of $\langle\sigma_{{\rm st},2}\rangle$ for different $\Omega$ and $\omega$ is represented in Fig. \ref{fig:2transmon}. As one can see, with the increase of driving power, when driving power become of order of damping, dips appear at frequencies we have determined. This feature is expectable for multi-photonic processes and it is due to effective inverse occupation of the third transmon levels. It occurs when the occupancy of the transmon third level exceeds a second level occupancy, that results in effective suppression of a single-photon process.
 
 
 There is another approach to find the resonant frequencies responsible for multiphoton processes. Hamiltonian (\ref{H}) in rotating frame does not depend on time explicitly. In addition it conserves excitation number, $N$, so it can be split into independent sectors with particular $N$ which we denote as $H_{(N)}$.
@@ -314,29 +333,29 @@ J & -\delta
 \delta = \pm J;
 \\[1em]
 H_{(2)} = \begin{pmatrix}
-\alpha - 2\delta & \sqrt{2} J & 0
+U - 2\delta & \sqrt{2} J & 0
 \\
 \sqrt{2} J & - 2\delta & \sqrt{2} J
 \\
-0 & \sqrt{2} J & \alpha - 2 \delta
+0 & \sqrt{2} J & U - 2 \delta
 \end{pmatrix},
 \qquad &
 \displaystyle
-\delta = \frac{\alpha \pm \sqrt{16 J^2 + \alpha^2}}{4}, \quad \delta = \frac{\alpha}{2};
+\delta = \frac{U \pm \sqrt{16 J^2 + U^2}}{4}, \quad \delta = \frac{U}{2};
 \\[2em]
 H_{(3)} = \begin{pmatrix}
-\alpha - 3\delta & 2J
+U - 3\delta & 2J
 \\
-2 J & \alpha - 3 \delta
+2 J & U - 3 \delta
 \end{pmatrix},
 \qquad & \displaystyle
-\delta = \frac{\alpha \pm 2 J}{3};
+\delta = \frac{U \pm 2 J}{3};
 \\[2em]
 H_{(4)} = \begin{pmatrix}
-2 \alpha - 4\delta
+2 U - 4\delta
 \end{pmatrix},
 \qquad & \displaystyle
-\delta = \frac{\alpha}{2}.
+\delta = \frac{U}{2}.
 \end{array}
 $$
 \end{widetext}
