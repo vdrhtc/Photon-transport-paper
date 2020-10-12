@@ -14,7 +14,7 @@ class Fig2:
 
         trans_data = []
         for panel in "ab":
-            for plot in "123":
+            for plot in "13":
                 with open(f"fig2{panel}{plot}.pkl", "rb") as f:
                     trans_data.append(pickle.load(f))
 
@@ -24,12 +24,12 @@ class Fig2:
         fig = plt.figure()
         spec = fig.add_gridspec(ncols=2, nrows=3)
 
-        powers = [-70, -60, -50]
+        powers = [-70, -50]
 
         for col in [0,1]:
-            for row in [0,1,2]:
+            for row in [0,1]:
                 ax = fig.add_subplot(spec[row, col])
-                data = trans_data[col*3+row]
+                data = trans_data[col*2+row]
                 m = ax.pcolormesh(data["Voltage [V]"], data["Frequency [Hz]"]/1e9,
                               20*log10(abs(data["data"].T)), rasterized = True,
                               cmap="RdBu_r", vmin=-60, vmax=-20)

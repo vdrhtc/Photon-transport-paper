@@ -120,6 +120,23 @@ class Fig3:
         for E in evals[-1][61:126]:
             ax.plot(X, ones_like(X) * E / 4, marker="_", color="C5", lw=lw, ms=ms)
         ax.set_ylim(3.8, 4)
+
+
+        ax.annotate("$E_1$", (1.35, evals[-1][1]+1e-3), (1.6, 3.84), arrowprops=dict(facecolor='black', width=.25, headwidth=3, headlength=3.5,
+                                    shrink=0.0), fontsize = 10)
+
+        ax.annotate("$E_{41}$", (11, evals[-1][46]/3), (5, evals[-1][46]/3), arrowprops=dict(facecolor='black', width=.25, headwidth=3, headlength=3.5,
+                                    shrink=0.0), fontsize = 10)
+
+        ax.annotate("$E_{119}$", (41, evals[-1][124]/4+1e-3), (50, evals[-1][124]/4+10e-3), arrowprops=dict(facecolor='black', width=.25, headwidth=3, headlength=3.5,
+                                    shrink=0.0), fontsize = 10)
+
+        ax.annotate("$E_{90}$", (41, evals[-1][95]/4+1e-3), (50, evals[-1][95]/4-10e-3), arrowprops=dict(facecolor='black', width=.25, headwidth=3, headlength=3.5,
+                                    shrink=0.0), fontsize = 10)
+
+        # ax.annotate("$E_{21}$", (3.9, evals[-1][46]/2-1e-3), (3.5, evals[-1][46]/2 - 15e-3),ha="right", arrowprops=dict(facecolor='black', width=.25, headwidth=3, headlength=3.5,
+        #                             shrink=0.0), fontsize = 10)
+
         ##### Panel (c)
 
         eval_intervals = [
