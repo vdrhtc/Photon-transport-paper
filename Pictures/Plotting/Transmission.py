@@ -30,7 +30,10 @@ class Fig2:
             for row in [0,1]:
                 ax = fig.add_subplot(spec[row, col])
                 data = trans_data[col*2+row]
-                m = ax.pcolormesh(data["Voltage [V]"], data["Frequency [Hz]"]/1e9,
+                Ystep = diff(data["Frequency [Hz]"])[0]
+                Y = concatenate((data["Frequency [Hz]"] - Ystep/2, [data["Frequency [Hz]"][-1]+Ystep/2]))
+
+                m = ax.pcolormesh(data["Voltage [V]"], Y/1e9,
                               20*log10(abs(data["data"].T)), rasterized = True,
                               cmap="RdBu_r", vmin=-60, vmax=-20)
 
