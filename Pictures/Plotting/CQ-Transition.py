@@ -1,4 +1,4 @@
-from matplotlib.ticker import MaxNLocator
+from matplotlib.ticker import MaxNLocator, LogLocator
 from numpy import *
 import pickle
 import matplotlib
@@ -22,7 +22,7 @@ class Fig3:
         with open("fig3a.pkl", "rb") as f:
             exp_data = pickle.load(f)
 
-        with open("fig3b.pkl", "rb") as f:
+        with open("5q-res-converted.pkl", "rb") as f:
             sim_data = pickle.load(f)
 
         with open("chain_spectrum.pkl", "rb") as f:
@@ -44,7 +44,7 @@ class Fig3:
         ax.set_xlabel("Re $S_{21}$")
         ax.set_ylim(3.8, 4)
         ax.set_title("A - A", position = (1.1,1))
-        plt.text(-.9, 1.05, "(a)", fontdict={"name": "STIX"}, fontsize=17,
+        plt.text(-.9, 1.05, "(a)", fontdict={"name": "STIX"}, fontsize=15,
                  transform=ax.transAxes)
 
         ax = fig.add_subplot(oneDmetaspec[0, 1])
@@ -55,17 +55,20 @@ class Fig3:
         ax.set_xlabel("Im $S_{21}$")
         ax.set_ylim(3.8, 4)
 
-        # Plot the power scan theory and expetimental data
+        # Plot the power scan theory and experimental data
         exp_data["data"] *= exp(2j * pi * 50.5e-9 * exp_data["Frequency [Hz]"] + 0.7j * pi)
         ax = fig.add_subplot(spec[0, 1])
         X = (10 ** (exp_data["Power [dBm]"] / 10)) * 1000
         Y = exp_data["Frequency [Hz]"]
         mappable = ax.pcolormesh(X, Y / 1e9,
                                  10*log10(abs(exp_data["data"].T))+10,
-                                 rasterized=True, cmap="RdBu_r")
+                                 rasterized=True, cmap="RdBu_r", vmin=-50)
         ax.set_xticklabels([])
         ax.set_xscale("log")
         ax.set_xlim((1 * 1e-3 / 2.1) ** 2 * 1e3, (100 * 1e-3 / 2.1) ** 2 * 1e3)
+        ax.xaxis.set_major_locator(LogLocator(base = 10, numticks = 15))
+        ax.xaxis.set_minor_locator(LogLocator(base = 10,subs=linspace(0.2, 0.9, 7), numticks = 15))
+
         ax.set_xlabel(r"VNA power (mW)")
         ax.set_yticklabels([])
 
@@ -76,27 +79,28 @@ class Fig3:
                     arrowprops=dict(facecolor='black', width=.5, headwidth=3, headlength=3.5,
                                     shrink=0.05))
 
-
-        plt.text(-.2, 1.05, "(b)", fontdict={"name": "STIX"}, fontsize=17,
+        plt.text(-.2, 1.05, "(b)", fontdict={"name": "STIX"}, fontsize=15,
                  transform=ax.transAxes)
 
         ax = fig.add_subplot(spec[0, 2])
-        X = (sim_data[0])
+        X = sim_data[0]
         Y = sim_data[1]
-        mappable = ax.pcolormesh(X * 1e3, Y, 10*log10(abs(sim_data[2].T))/2,
-                                 rasterized=True, cmap="RdBu_r", vmax = 0)
+        # print(X)
+        mappable = ax.pcolormesh(X * 1e3, Y, 10*log10(abs(sim_data[2].T)),
+                                 rasterized=True, cmap="RdBu_r", vmax = 0, vmin=-50)
         ax.set_yticklabels([])
         ax.set_xscale("log")
+        ax.set_xlim(1, 100)
         ax.set_xlabel(r"$\Omega$ (MHz)")
 
 
         cbaxes2 = fig.add_axes([0.4, .95, 0.15, .01])
         cb = plt.colorbar(mappable, ax=ax, cax=cbaxes2, orientation="horizontal")
-        cb.ax.set_title(r"$|S_{21}|$ (dB)", position=(1.3, -4), fontsize=10)
         cb.ax.xaxis.set_major_locator(MaxNLocator(5))
         cb.ax.tick_params(axis='both', which='minor', labelsize=7)
+        cbaxes2.set_title(r"$|S_{21}|$ (dB)", position=(1.3, 0), y=-2, transform=cbaxes2.transAxes, fontsize=10)
 
-        plt.text(1.05, 1.05, "(c)", fontdict={"name": "STIX"}, fontsize=17,
+        plt.text(1.05, 1.05, "(c)", fontdict={"name": "STIX"}, fontsize=15,
                  transform=ax.transAxes)
 
         X = [1.25]
@@ -246,8 +250,8 @@ class Fig3:
         axes[0].set_xticks([0.05 + 0.425 / 2, .75])
         axes[0].set_xticklabels(["0", "40"])
         axes[0].set_xlabel("$J/2\pi$ (MHz)")
-        axes[2].set_ylabel("$(E_n - E_0)/h$ [GHz]")
-        axes[2].yaxis.set_label_coords(-.325, -0.25)
+        axes[2].set_ylabel("$E_n/h$ [GHz]")
+        axes[2].yaxis.set_label_coords(-.3, -0.25)
         plt.gcf().set_size_inches(11, 4)
         plt.savefig("../fig3.pdf", bbox_inches="tight")
 
