@@ -98,11 +98,11 @@ Using the Taylor expansion near each of the poles of \eqref{eq:s21}, one can exp
 
 
 \section{Two-qutrit analytical solution}
-It is instructive to discuss also a simple model of a chain of two identical three-level transmons; this case can be solved analytically. However, even for a pair of qutrits the exact analytical expression for the steady state is too cumbersome work with. Therefore we suggest to analyze its series expansion with respect to the driving amplitude. In the leading order in $f$, the density matrix elements in the steady state can be represented as
+It is instructive to discuss also a simple model of a chain of two identical three-level transmons; this case can be solved analytically. However, even for a pair of qutrits the exact analytical expression for the steady state is too cumbersome work with. Therefore we suggest to analyze its series expansion with respect to the driving amplitude. In the leading order in $\Omega$, the density matrix elements in the steady state can be represented as
 $$
-\rho_{\text{ss}}^{ij|i'j'} \propto  f^{i+j+i'+j'-4}\, \ket{i,j}\bra{i',j'},
+\rho_{\text{ss}}^{ij|i'j'} \propto  \Omega^{i+j+i'+j'-4}\, \ket{i,j}\bra{i',j'},
 $$
-here variables $i$, $j$, $i'$, $j'$ run through the values 1, 2, 3 related to the number of the transmon energy level. We split all elements of the density matrix into groups according to its leading order $n$ in $f$. We start from the case $n=0$. In this group there is only single element related to the transmon's ground state, so for this element we have $\rho^{11|11}_{\text{ss}}=1$. As the next step, $n=1$, there are four linear equations for density matrix elements $\rho^{11|12}_{\text{ss}}$, $\rho^{11|21}_{\text{ss}}$, $\rho^{12|11}_{\text{ss}}$ and $\rho^{21|11}_{\text{ss}}$. Here we take into account the result at the previous step  $\rho^{11|11}_{\text{ss}}=1$. We continue this iterative procedure for $n=2, 3, \dots$ and find the remaining density matrix elements. Thus, we finally find the series expansion for 
+here variables $i$, $j$, $i'$, $j'$ run through the values 1, 2, 3 related to the number of the transmon energy level. We split all elements of the density matrix into groups according to its leading order $n$ in $\Omega$. We start from the case $n=0$. In this group there is only single element related to the transmon's ground state, so for this element we have $\rho^{11|11}_{\text{ss}}=1$. As the next step, $n=1$, there are four linear equations for density matrix elements $\rho^{11|12}_{\text{ss}}$, $\rho^{11|21}_{\text{ss}}$, $\rho^{12|11}_{\text{ss}}$ and $\rho^{21|11}_{\text{ss}}$. Here we take into account the result at the previous step  $\rho^{11|11}_{\text{ss}}=1$. We continue this iterative procedure for $n=2, 3, \dots$ and find the remaining density matrix elements. Thus, we finally find the series expansion for 
 
 $$
 \sigma^-_{2}
@@ -197,49 +197,39 @@ $$
 \end{widetext}
 This result illustrates why there is no specific poles in series expansion of $\langle\sigma_{2}^-\rangle$ in seventh order: four-photon process is hidden by a two-photon process since both of them have the same energy. This accidental coincidence is a feature of this particular configuration with a couple of three-level systems. For example, if we treat transmons as  four-level systems, then this effect will not occur and four-photon process will be distinguishable.
 
-
 \section{Weak driving: transmons as two-level systems}
 
-For weak driving, the transmon chain can be approximated as a chain of qubits, i.e.,
-two-level systems. We thus consider an XY chain in the transverse field, which is described
+For a single two-level system under the coherent irradiation, electromagnetic dressing in a nonlinear regime gives rise to the splitting of the transmission peak. It is of interest to address transmon chain treating it as a chain of qubits under weak pumping that is expected to be adequate in a weakly nonlinear regime.
+
+We thus consider a XY chain in the transverse field, which is described
 by the Hamiltonian
 \begin{eqnarray}
-H = \omega \sum_{j=1}^{5} \sigma_j^{+} \sigma_j^{-} + J
-\sum_{j=1}^{5}(\sigma_j^{+} \sigma_{j+1}^{-} + \sigma_{j+1}^{+}
-\sigma_j^{-}),
+H = \omega \sum_{i=1}^{5} \sigma_i^{+} \sigma_i^{-} + J
+\sum_{i=1}^{5}(\sigma_i^{+} \sigma_{i+1}^{-} + \sigma_{i+1}^{+}
+\sigma_i^{-}),
 \label{Hamiltonian}
 \end{eqnarray}
-where $\sigma_j^{+}$, $\sigma_j^{-}$ are Pauli operators acting in the space of two states of $j$'th qubit.
+where $\omega$ is the excitation energy of each qubit, which corresponds to the transition from the ground to the first excited state of the transmon, and $\sigma_i^{+}$, $\sigma_i^{-}$ are Pauli operators acting in the space of two states of $i$'th qubit.
 
-The Hamiltonian (\ref{Hamiltonian}) conserves excitation number. We readily find the eigenenergies $E_n$ and eigenstates $S_n^{\dagger} |\varphi\rangle$ of this Hamiltonian:
+The Hamiltonian (\ref{Hamiltonian}) conserves excitation number. We readily find eigenstates of this Hamiltonian in the sector with the single excitation. The eigenenergies $E_n$ and eigenstates $S_n^{\dagger} |0\rangle$ are given by
 \begin{eqnarray}
-E_1 = \varepsilon - J \sqrt{3}, &&\ 
+E_1 = \omega - J \sqrt{3}, &&
 S_1^{\dagger}=\frac{1}{2\sqrt{3}}\sigma_1^{+} - \frac{1}{2}\sigma_2^{+} + \frac{1}{\sqrt{3}}\sigma_3^{+} - \frac{1}{2}\sigma_4^{+} + \frac{1}{2\sqrt{3}}\sigma_5^{+},
 \\ \nonumber
-E_2 = \varepsilon - J , &&\ 
+E_2 = \omega - J , &&
 S_2^{\dagger}=\frac{1}{2}\left(\sigma_1^{+} - \sigma_2^{+} + \sigma_4^{+} - \sigma_5^{+}\right),
 \\ \nonumber
-E_3 = \varepsilon, &&\ 
+E_3 = \omega, &&
 S_3^{\dagger}=\frac{1}{\sqrt{3}}\left(\sigma_1^{+} - \sigma_3^{+} + \sigma_5^{+}\right),
 \\ \nonumber
-E_4 = \varepsilon + J , &&\ 
+E_4 = \omega + J , &&
 S_2^{\dagger}=\frac{1}{2}\left(\sigma_1^{+} + \sigma_2^{+} - \sigma_4^{+} - \sigma_5^{+}\right),
 \\ \nonumber
-E_5 = \varepsilon + J \sqrt{3}, &&\ 
+E_5 = \omega + J \sqrt{3}, &&
 S_5^{\dagger}=\frac{1}{2\sqrt{3}}\sigma_1^{+} + \frac{1}{2}\sigma_2^{+} + \frac{1}{\sqrt{3}}\sigma_3^{+} + \frac{1}{2}\sigma_4^{+} + \frac{1}{2\sqrt{3}}\sigma_5^{+}.
-\label{E}
+\label{Eigen}
 \end{eqnarray}
-We assume that energy dissipation rates $\gamma$ are nonzero only for the first and the last qubits of the chain and they are equal to each other. In this case, the energy dissipation rates corresponding to the new state $S_n^{\dagger} |\varphi\rangle$ are given by $\gamma_n=\gamma \langle \varphi |S_n (\sigma_1^{+} \sigma_1^{-} +  \sigma_5^{+} \sigma_5^{-} )S_n^{\dagger} |\varphi\rangle$, from which we find $\gamma_1=\gamma_5 = \gamma /6$, $\gamma_2=\gamma_4= \gamma/2$, $\gamma_3= 2\gamma /3$.
-
-Let us we consider an additional term of the Hamiltonian which
-describes an external pumping acting on the first qubit in the
-chain
-\begin{eqnarray}
-H_{d} =f \sqrt{\gamma}(\sigma_1^{+} e^{-i \omega_d t} + \sigma_1^{-} e^{i \omega_d t}),
-\label{Hint}
-\end{eqnarray}
-where $f$ is input field. Using Eq. (\ref{E}), we express $\sigma_1^{-}$ in terms of the new operators
-as
+We assume that energy dissipation rates $\Gamma$ are nonzero only for the rightmost and leftmost qubits of the chain and they are equal to each other. In this case, the energy dissipation rates corresponding to the new state $S_n^{\dagger} |0\rangle$ are given by $\Gamma_n=\Gamma \langle 0 |S_n (\sigma_1^{+} \sigma_1^{-} +  \sigma_5^{+} \sigma_5^{-} )S_n^{\dagger} |0\rangle$, from which we find $\Gamma_1=\Gamma_5 = \Gamma /6$, $\Gamma_2=\Gamma_4= \Gamma/2$, $\Gamma_3= 2\Gamma /3$. All these results are in agreement with our conclusions for the linear regime of the Bose-Hubbard chain. We now express $\sigma_1^{+}$ in terms of the new operators as
 \begin{eqnarray}
 \sigma_1^{\dagger}=\frac{1}{2\sqrt{3}}S_1^{+} + \frac{1}{2}S_2^{+} + \frac{1}{\sqrt{3}}S_0^{+} + \frac{1}{2}S_4^{+} + \frac{1}{2\sqrt{3}}S_5^{+}.
 \label{sigma1}
@@ -247,75 +237,72 @@ as
 from which we conclude that in the dressed basis the input
 characteristics $f_{n}$ for each state reads as $f_{1}=f_{5}=\frac{1}{2\sqrt{3}}f$, $f_{2}=f_{4}=\frac{1}{2}f$, $f_{3}=\frac{1}{\sqrt{3}}f$. In order to treat the dynamics of the chain under the pumping with frequency $\omega_d$,
 we switch to the
-dressed basis. Now we consider Maxwell-Bloch equations for each of the new
+dressed basis and consider Maxwell-Bloch equations for each of the new
 two-level systems in the rotating frame
 \begin{equation}
-\frac{d \langle S_n^{z} \rangle}{dt} = -2\gamma_n \left(1+
+\frac{d \langle S_n^{z} \rangle}{dt} = -2\Gamma_n \left(1+
 \langle S_n^{z} \rangle \right) + i f_{n}
-\sqrt{\gamma}\left(\langle S_n^{-} \rangle  -
+\sqrt{\Gamma}\left(\langle S_n^{-} \rangle  -
 \langle S_n^{+} \rangle \right). \label{sigmaz}
 \end{equation}
 \begin{equation}
 \frac{d \langle S_n^{-} \rangle}{dt} = -\left(i (E_n-\omega_d) +
-\gamma_n\right) \langle S_n^{-} \rangle + 2 i
-\sqrt{\gamma} \langle S_n^{z} \rangle f_n.
+\Gamma_n\right) \langle S_n^{-} \rangle + 2 i
+\sqrt{\Gamma} \langle S_n^{z} \rangle f_n.
 \label{sigmaminus}
 \end{equation}
 
 The steady state solution for $\langle S_n^{-} \rangle$ is
 \begin{equation}
 \langle S_n^{-} \rangle  = -
-\frac{2i f_{n} \sqrt{\gamma}}{i\left(E_n - \omega_d\right) + \gamma_n}
-\frac{1}{1+ \frac{2 |f_{n}|^2 \gamma}{\left(E_n - \omega_d\right)^2 +
-		\gamma_n^2}}. \label{sigmaminusst}
+\frac{2i f_{n} \sqrt{\Gamma}}{i\left(E_n - \omega\right) + \Gamma_n}
+\frac{1}{1+ \frac{2 |f_{n}|^2 \Gamma}{\left(E_n - \omega_d\right)^2 +
+		\Gamma_n^2}}. \label{sigmaminusst}
 \end{equation}
-
-Next, we take
-into account that $f_{out}=\sqrt{\gamma} \sigma_{5}^{-}$ and express $\sigma_{5}^{-} $ in terms of dressed states destruction operators as \begin{eqnarray}
-\sigma_5^{-}=\frac{1}{2\sqrt{3}}S_1^{-} - \frac{1}{2}S_2^{-} + \frac{1}{\sqrt{3}}S_0^{-} - \frac{1}{2}S_4^{-} + \frac{1}{2\sqrt{3}}S_5^{-}.
+We also express $\sigma_{5}^{+} $ in terms of dressed states operators as \begin{eqnarray}
+\sigma_5^{+}=\frac{1}{2\sqrt{3}}S_1^{+} - \frac{1}{2}S_2^{+} + \frac{1}{\sqrt{3}}S_0^{+} - \frac{1}{2}S_4^{+} + \frac{1}{2\sqrt{3}}S_5^{+}.
 \label{sigma5}
 \end{eqnarray}
 Taking into account Eq. (\ref{sigmaminusst}), we obtain $S_{21}$ as a sum of contributions of five states
 \begin{eqnarray}
-S_{21} = \frac{f_{out}}{f}  = - \frac{i}{6} \frac{\gamma}{i\left(\Delta
-	\varepsilon - J \sqrt{3}\right) + \gamma/6}
-\frac{1}{1+ \frac{ f^2 \gamma /6}{\left(\Delta
-		\varepsilon - J \sqrt{3}\right)^2 + \gamma^2/36}}  \nonumber
-+\frac{i}{2} \frac{\gamma}{i\left(\Delta
-	\varepsilon - J \right) + \gamma/2}
-\frac{1}{1+ \frac{ f^2 \gamma /2}{\left(\Delta
-		\varepsilon - J \right)^2 + \gamma^2/4}} \\ \nonumber
-- \frac{2i}{3} \frac{\gamma}{i\left(\Delta
-	\varepsilon \right) + 2\gamma/3}
-\frac{1}{1+ \frac{ 2 f^2 \gamma /3}{\left(\Delta
-		\varepsilon \right)^2 + 4 \gamma^2/9}} %\\ \nonumber
-+\frac{i}{2} \frac{\gamma}{i\left(\Delta
-	\varepsilon + J \right) + \gamma/2}
-\frac{1}{1+ \frac{ f^2 \gamma /2}{\left(\Delta
-		\varepsilon + J \right)^2 + \gamma^2/4}} \\ %\nonumber
-- \frac{i}{6} \frac{\gamma}{i\left(\Delta
-	\varepsilon + J \sqrt{3}\right) + \gamma/6}
-\frac{1}{1+ \frac{ f^2 \gamma /6}{\left(\Delta
-		\varepsilon + J \sqrt{3}\right)^2 + \gamma^2/36}}, 
+S_{21} = \frac{1}{6} \frac{\Gamma}{i\left(\Delta
+	\omega - J \sqrt{3}\right) + \Gamma/6}
+\frac{1}{1+ \frac{ f^2 \Gamma /6}{\left(\Delta
+		\omega - J \sqrt{3}\right)^2 + \Gamma^2/36}}  \nonumber
+-\frac{1}{2} \frac{\Gamma}{i\left(\Delta
+	\omega - J \right) + \Gamma/2}
+\frac{1}{1+ \frac{ f^2 \Gamma /2}{\left(\Delta
+		\omega - J \right)^2 + \Gamma^2/4}} \\ \nonumber
++ \frac{2}{3} \frac{\Gamma}{i\left(\Delta
+	\omega \right) + 2\Gamma/3}
+\frac{1}{1+ \frac{ 2 f^2 \Gamma /3}{\left(\Delta
+		\omega \right)^2 + 4 \Gamma^2/9}} %\\ \nonumber
+-\frac{1}{2} \frac{\Gamma}{i\left(\Delta
+	\omega + J \right) + \Gamma/2}
+\frac{1}{1+ \frac{ f^2 \Gamma /2}{\left(\Delta
+		\omega + J \right)^2 + \Gamma^2/4}} \\ %\nonumber
++ \frac{1}{6} \frac{\Gamma}{i\left(\Delta
+	\omega + J \sqrt{3}\right) + \Gamma/6}
+\frac{1}{1+ \frac{ f^2 \Gamma /6}{\left(\Delta
+		\omega + J \sqrt{3}\right)^2 + \Gamma^2/36}},
 \label{bout}
 \end{eqnarray}
-where $\Delta \varepsilon = \varepsilon - \omega_d$.
+where $\Delta \omega = \omega - \omega_d$.
 
-The behavior of $\ln |S_{21}|$ is shown in Fig. \ref{fig:qubitchain} using the same values of all parameters, as the ones deduced from the comparison of theory and experiment for transmon chain. At weak drivings peaks of $|S_{21}|$ are at eigenenergies of $H$. At strong drivings,
-$ \frac{2 |f_{n}|^2 \gamma}{\left(E_n - \omega_d\right)^2 +
-	\gamma_n^2}$ dominates over $1$ and
-all denominators of the form $i\left(E_n - \omega_d\right) + \gamma_n$ 
+At very weak drivings, i.e., in linear regime, peaks of $|S_{21}|$ are at eigenenergies of $H$. At stronger drivings,
+$ \frac{2 |f_{n}|^2 \Gamma}{\left(E_n - \omega_d\right)^2 +
+	\Gamma_n^2}$ dominates over $1$ and
+all denominators of the form $i\left(E_n - \omega_d\right) + \Gamma_n$
 disappear from the expression for $S_{21}$, so that
-peaks vanish and are gradually transformed into deeps. Along the crossover between the two regimes,
-individual maxima split into Autler-Townes peaks, which start overlapping with each other and form a complex wavy structure. The Autler-Townes peaks are due to the fact that the dressed states of the chain become also dressed with the incident light. The overlap between individual peaks implies that dressed states of the qubit chain become strongly hybridized with each other through hybridization with the light.
+transmission peaks vanish and are gradually transformed into local minima. Along the crossover between the two regimes,
+individual maxima split into peaks, which are due to the fact that the dressed states of the chain become also dressed with the incident light. 
 
-We stress that our simple model is applicable only at low drivings, when at maximum a single excitation is created in the system. Particularly, this model totally misses multiphoton excitation processes, which significantly influence the dynamics at stronger driving.
-
+We stress that our simple model is applicable only at low drivings, when at maximum a single excitation is created in the system. Particularly, this model totally misses multiphoton excitation processes, which appear at the same order in $f$ as the nonlinearities we here consider. However, there exists a domain of parameters at weak pumping, where multiphoton processes are not so pronounced, while transmission peaks splitting is discernable, see, e.g., Fig. 2. Particularly, this applies to blue-detuned regimes near resonances as transmons anharmonicities are negative.
 
 \begin{figure}[h!]
 \includegraphics[width=.5\linewidth]{map-s21-5qb2-w-log.pdf}
 	\caption{The behavior of $\ln |S_{21}|$ for the chain of qubits as
-		a function of $\omega_d$ and $f$.}
+		a function of $\omega_d$ and $\Omega$.}
 	\label{fig:qubitchain}
 \end{figure}
 
