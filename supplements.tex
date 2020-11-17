@@ -231,32 +231,32 @@ S_5^{\dagger}=\frac{1}{2\sqrt{3}}\sigma_1^{+} + \frac{1}{2}\sigma_2^{+} + \frac{
 \end{eqnarray}
 We assume that energy dissipation rates $\Gamma$ are nonzero only for the rightmost and leftmost qubits of the chain and they are equal to each other. In this case, the energy dissipation rates corresponding to the new state $S_n^{\dagger} |0\rangle$ are given by $\Gamma_n=\Gamma \langle 0 |S_n (\sigma_1^{+} \sigma_1^{-} +  \sigma_5^{+} \sigma_5^{-} )S_n^{\dagger} |0\rangle$, from which we find $\Gamma_1=\Gamma_5 = \Gamma /6$, $\Gamma_2=\Gamma_4= \Gamma/2$, $\Gamma_3= 2\Gamma /3$. All these results are in agreement with our conclusions for the linear regime of the Bose-Hubbard chain. We now express $\sigma_1^{+}$ in terms of the new operators as
 \begin{eqnarray}
-\sigma_1^{\dagger}=\frac{1}{2\sqrt{3}}S_1^{+} + \frac{1}{2}S_2^{+} + \frac{1}{\sqrt{3}}S_0^{+} + \frac{1}{2}S_4^{+} + \frac{1}{2\sqrt{3}}S_5^{+}.
+\sigma_1^{\dagger}=\frac{1}{2\sqrt{3}}S_1^{+} + \frac{1}{2}S_2^{+} + \frac{1}{\sqrt{3}}S_0^{+} + \frac{1}{2}S_4^{+} + \frac{1}{2\sqrt{3}}S_5^{+},
 \label{sigma1}
 \end{eqnarray}
 from which we conclude that in the dressed basis the input
-characteristics $f_{n}$ for each state reads as $f_{1}=f_{5}=\frac{1}{2\sqrt{3}}f$, $f_{2}=f_{4}=\frac{1}{2}f$, $f_{3}=\frac{1}{\sqrt{3}}f$. In order to treat the dynamics of the chain under the pumping with frequency $\omega_d$,
+characteristics $\Omega_{n}$ for each state reads as $\Omega_{1}=\Omega_{5}=\frac{1}{2\sqrt{3}}\Omega$, $\Omega_{2}=\Omega_{4}=\frac{1}{2}\Omega$, $\Omega_{3}=\frac{1}{\sqrt{3}}\Omega$. In order to treat the dynamics of the chain under the pumping with frequency $\omega_d$,
 we switch to the
 dressed basis and consider Maxwell-Bloch equations for each of the new
 two-level systems in the rotating frame
 \begin{equation}
 \frac{d \langle S_n^{z} \rangle}{dt} = -2\Gamma_n \left(1+
-\langle S_n^{z} \rangle \right) + i f_{n}
-\sqrt{\Gamma}\left(\langle S_n^{-} \rangle  -
+\langle S_n^{z} \rangle \right) +  \frac{i \Omega_n \sqrt{\Gamma}}{2}
+\left(\langle S_n^{-} \rangle  -
 \langle S_n^{+} \rangle \right). \label{sigmaz}
 \end{equation}
 \begin{equation}
 \frac{d \langle S_n^{-} \rangle}{dt} = -\left(i (E_n-\omega_d) +
-\Gamma_n\right) \langle S_n^{-} \rangle + 2 i
-\sqrt{\Gamma} \langle S_n^{z} \rangle f_n.
+\Gamma_n\right) \langle S_n^{-} \rangle + i
+\sqrt{\Gamma} \langle S_n^{z} \rangle \Omega_n.
 \label{sigmaminus}
 \end{equation}
 
 The steady state solution for $\langle S_n^{-} \rangle$ is
 \begin{equation}
 \langle S_n^{-} \rangle  = -
-\frac{2i f_{n} \sqrt{\Gamma}}{i\left(E_n - \omega\right) + \Gamma_n}
-\frac{1}{1+ \frac{2 |f_{n}|^2 \Gamma}{\left(E_n - \omega_d\right)^2 +
+\frac{i \Omega_{n} \sqrt{\Gamma}}{i\left(E_n - \omega\right) + \Gamma_n}
+\frac{1}{1+ \frac{|\Omega_{n}|^2 \Gamma/2}{\left(E_n - \omega_d\right)^2 +
 		\Gamma_n^2}}. \label{sigmaminusst}
 \end{equation}
 We also express $\sigma_{5}^{+} $ in terms of dressed states operators as \begin{eqnarray}
@@ -267,37 +267,38 @@ Taking into account Eq. (\ref{sigmaminusst}), we obtain $S_{21}$ as a sum of con
 \begin{eqnarray}
 S_{21} = \frac{1}{6} \frac{\Gamma}{i\left(\Delta
 	\omega - J \sqrt{3}\right) + \Gamma/6}
-\frac{1}{1+ \frac{ f^2 \Gamma /6}{\left(\Delta
+\frac{1}{1+ \frac{1}{2}\frac{ \Omega^2 \Gamma /6}{\left(\Delta
 		\omega - J \sqrt{3}\right)^2 + \Gamma^2/36}}  \nonumber
 -\frac{1}{2} \frac{\Gamma}{i\left(\Delta
 	\omega - J \right) + \Gamma/2}
-\frac{1}{1+ \frac{ f^2 \Gamma /2}{\left(\Delta
+\frac{1}{1+ \frac{1}{2} \frac{ \Omega^2 \Gamma /2}{\left(\Delta
 		\omega - J \right)^2 + \Gamma^2/4}} \\ \nonumber
 + \frac{2}{3} \frac{\Gamma}{i\left(\Delta
 	\omega \right) + 2\Gamma/3}
-\frac{1}{1+ \frac{ 2 f^2 \Gamma /3}{\left(\Delta
+\frac{1}{1+ \frac{1}{2}\frac{ 2 \Omega^2 \Gamma /3}{\left(\Delta
 		\omega \right)^2 + 4 \Gamma^2/9}} %\\ \nonumber
 -\frac{1}{2} \frac{\Gamma}{i\left(\Delta
 	\omega + J \right) + \Gamma/2}
-\frac{1}{1+ \frac{ f^2 \Gamma /2}{\left(\Delta
+\frac{1}{1+ \frac{1}{2}\frac{ \Omega^2 \Gamma /2}{\left(\Delta
 		\omega + J \right)^2 + \Gamma^2/4}} \\ %\nonumber
 + \frac{1}{6} \frac{\Gamma}{i\left(\Delta
 	\omega + J \sqrt{3}\right) + \Gamma/6}
-\frac{1}{1+ \frac{ f^2 \Gamma /6}{\left(\Delta
+\frac{1}{1+ \frac{1}{2}\frac{ \Omega^2 \Gamma /6}{\left(\Delta
 		\omega + J \sqrt{3}\right)^2 + \Gamma^2/36}},
 \label{bout}
 \end{eqnarray}
 where $\Delta \omega = \omega - \omega_d$.
 
+
 At very weak drivings, i.e., in linear regime, peaks of $|S_{21}|$ are at eigenenergies of $H$. At stronger drivings,
-$ \frac{2 |f_{n}|^2 \Gamma}{\left(E_n - \omega_d\right)^2 +
+$ \frac{|\Omega_{n}|^2 \Gamma / 2}{\left(E_n - \omega_d\right)^2 +
 	\Gamma_n^2}$ dominates over $1$ and
 all denominators of the form $i\left(E_n - \omega_d\right) + \Gamma_n$
 disappear from the expression for $S_{21}$, so that
-transmission peaks vanish and are gradually transformed into local minima. Along the crossover between the two regimes,
-individual maxima split into peaks, which are due to the fact that the dressed states of the chain become also dressed with the incident light. 
+transmission peaks become suppressed and are gradually transformed into local minima. Along the crossover between the two regimes,
+individual maxima split into peaks, which are due to the fact that the dressed states of the chain become also dressed with the incident light.
 
-We stress that our simple model is applicable only at low drivings, when at maximum a single excitation is created in the system. Particularly, this model totally misses multiphoton excitation processes, which appear at the same order in $f$ as the nonlinearities we here consider. However, there exists a domain of parameters at weak pumping, where multiphoton processes are not so pronounced, while transmission peaks splitting is discernable, see, e.g., Fig. 2. Particularly, this applies to blue-detuned regimes near resonances as transmons anharmonicities are negative.
+We stress that our simple model is applicable only at low drivings, when at maximum a single excitation is created in the system. Particularly, this model totally misses multiphoton excitation processes, which appear at the same order in $\Omega$ as the nonlinearities we here consider. However, there exists a domain of parameters at weak pumping, where multiphoton processes are not so pronounced, while transmission peaks splitting is discernable, see, e.g., Fig. 2. Particularly, this applies to blue-detuned regimes near resonances as transmons anharmonicities are negative.
 
 \begin{figure}[h!]
 \includegraphics[width=.5\linewidth]{map-s21-5qb2-w-log.pdf}
