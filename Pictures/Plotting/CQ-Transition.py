@@ -40,7 +40,7 @@ class Fig3:
         ax.plot(real(fit_data), exp_freqs, "-", color="black", lw=1)
 
         ax.yaxis.set_major_locator(MaxNLocator(5))
-        ax.set_ylabel("VNA frequency (GHz)")
+        ax.set_ylabel("$\omega_d/2\pi$ (GHz)")
         ax.set_xlabel("Re $S_{21}$")
         ax.set_ylim(3.8, 4)
         ax.set_title("A - A", position = (1.1,1))
@@ -250,7 +250,7 @@ class Fig3:
         axes[0].set_xticks([0.05 + 0.425 / 2, .75])
         axes[0].set_xticklabels(["0", "40"])
         axes[0].set_xlabel("$J/2\pi$ (MHz)")
-        axes[2].set_ylabel("$E_n/h$ [GHz]")
+        axes[2].set_ylabel("$E_n/h$ (GHz)")
         axes[2].yaxis.set_label_coords(-.3, -0.25)
         plt.gcf().set_size_inches(11, 4)
         plt.savefig("../fig3.pdf", bbox_inches="tight")

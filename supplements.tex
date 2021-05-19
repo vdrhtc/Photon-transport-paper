@@ -43,7 +43,6 @@ superscriptaddress
 %\usepackage[mathlines]{lineno}% Enable numbering of text and display math
 %\linenumbers\relax % Commence numbering lines
 \usepackage{hyperref}
-\usepackage{kbordermatrix}% http://www.hss.caltech.edu/~kcb/TeX/kbordermatrix.sty
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
@@ -54,6 +53,7 @@ superscriptaddress
 \usepackage{bbm}
 \usepackage{xcolor}
 \usepackage{url}
+\usepackage{bibentry}
 
 
 %\usepackage{multirow}
@@ -72,6 +72,20 @@ superscriptaddress
 	
 \maketitle
 
+\section{Full master equation formulation}
+
+For brevity, in the main text we omit writing down the full master equation for the many-body density matrix $\hat \rho$. For our five-transmon chain it reads:
+\[
+\frac{\partial \hat \rho}{\partial t} = \frac{i}{\hbar} [\hat \rho, \hat H] + \sum_{i=1}^5 \left[ \mathcal{D}[O_\gamma^{(i)}] + \mathcal{D}[O_\phi^{(i)}] \right]\hat \rho,
+\]
+where $\hat H$ is as in the main text, the dissipator superoperators are in the Linbladian form 
+\[\mathcal D[\hat{O}^{(i)}_\alpha]\hat \rho = \hat{O}^{(i)}_\alpha \hat \rho \hat{O}^{(i)\dag}_\alpha - \frac{1}{2}\{\hat{O}^{(i)\dag}_\alpha \hat{O}^{(i)}_\alpha, \hat \rho\},
+\]
+and the collapse operators for the relaxation and the dephasing have individual rates $\gamma_i$ and $\gamma_\phi^{(i)}$, respectively, for each of the transmons:
+\[
+ \hat{O}^{(i)}_\gamma = \sqrt{\gamma_i} \hat b_i,\quad \hat{O}^{(i)}_\phi = \sqrt{\gamma^{(i)}_\phi} \hat b_i^\dag \hat b_i.
+\]
+The solution for the steady state $\hat\rho_{ss}$, $\partial \rho_{ss}/\partial t = 0$, can be then reduced to the solution of a linear system of equations with an additional norm equation to preserve the unit trace.
 
 \section{Linear regime} \label{sec:app_linear}
 
@@ -85,16 +99,16 @@ In the linear regime with no pure dephasing, the Langevin equations for the stea
 0 &= i(\omega_5 - \omega_d)\hat b_5^\dag - \frac{\gamma_5}{2} \hat b_5^\dag + i J\hat b_4^\dag,
 \end{aligned} 
 \end{equation}
-omitting zero-photon fluctuations. The solution of this system used for the model curves in Fig. 3~(a) of the main paper is too complex to display; however, for the degenerate case it becomes rather simple:
+omitting zero-photon fluctuations \cite{collett1984squeezing}. The solution of this system used for the model curves in Fig. 3~(a) of the main paper is too complex to display; however, for the degenerate case it becomes rather simple:
 \begin{equation}
 \hat b_{{5}}^\dag={\frac {4\,i{J}^{4}\sqrt {\Gamma} \hat b_{in}^\dag}{ \left( i\delta\,
-\Gamma+2\,{\delta}^{2}-2\,{J}^{2} \right)  \left( i{\delta}^{2}
-\Gamma-2\,i{J}^{2}\Gamma+2\,{\delta}^{3}-6\,\delta\,{J}^{2
-} \right) }}.\label{eq:s21}
+		\Gamma+2\,{\delta}^{2}-2\,{J}^{2} \right)  \left( i{\delta}^{2}
+		\Gamma-2\,i{J}^{2}\Gamma+2\,{\delta}^{3}-6\,\delta\,{J}^{2
+		} \right) }}.\label{eq:s21}
 \end{equation}
-Here, $\delta = \omega_d - \omega$. For the case of strong coupling, $J\gg \Gamma$, one can find that the poles of this expression are at $0, \pm J, \pm \sqrt 3 J $. This is a particular case of a more general statement considering the crystal dispersion relation: for a system of size $N$, the crystal momentum takes $N$ values $k = \frac{2 \pi}{N+1} m,\ m=\pm 1, \pm 2... m \leq N/2,\ m\in \mathbb{Z}\  \cup\ {0}$ if $ N $ is odd. Then the corresponding dispersion relation is $E/\hbar = \omega + 2 J \sin k/2$.
+Here, $\delta = \omega_d - \omega$. For the case of strong coupling, $J\gg \Gamma$, one can find that the poles of this expression are at $0, \pm J, \pm \sqrt 3 J $. This is a particular case of a more general statement considering the crystal dispersion relation: for a system of size $N$, the crystal momentum takes $N$ values $k = \frac{2 \pi}{N+1} m,\ m=\pm 1, \pm 2,...\ (|m| \leq N/2)\  \cup\ {0}$ if $ N $ is odd. Then the corresponding dispersion relation is $E/\hbar = \omega + 2 J \sin k/2$.
 
-Using the Taylor expansion near each of the poles of \eqref{eq:s21}, one can express is in the Lorentzian form and extract its width in the limit of $J \gg \Gamma$. This procedure will lead to the values $\Gamma/6,\ \Gamma/2,\ 2\Gamma/3$ for the peaks at the detunings $\pm \sqrt{3 J},\ \pm J, 0$, respectively. The sum of the widths equals to $2\Gamma$ and is conserved even when the transmons are arbitrarily detuned from the resonance. We also derive these values in another way in Section III, see below.
+Using the Taylor expansion near each of the poles of \eqref{eq:s21}, one can express it in the Lorentzian form and extract its width in the limit of $J \gg \Gamma$. This procedure will lead to the values $\Gamma/6,\ \Gamma/2,\ 2\Gamma/3$ for the peaks at the detunings $\pm \sqrt{3}J,\ \pm J, 0$, respectively. The sum of the widths equals to $2\Gamma$ and is conserved even when the transmons are arbitrarily detuned from the resonance. We also derive these values in another way in Section III, see below.
 
 
 \section{Two-qutrit analytical solution}
@@ -148,7 +162,7 @@ where $\delta = \omega_d - \omega$ is the detuning. We stress that in this expan
 $\delta = (\alpha \pm 2J)/3$. The result of the numerical calculation of $\langle\sigma_{2}^-\rangle$ for different $\Omega$ and $\omega$ is represented in Fig. \ref{fig:map-sminus-2qb3-log}. As one can see, with the increase of driving power, when driving power become of order of damping, dips appear at frequencies we have determined. This feature is expectable for multi-photonic processes and it is due to effective inverse occupation of the third transmon levels. It occurs when the occupancy of the transmon third level exceeds a second level occupancy, that results in effective suppression of a single-photon process.
 
 \begin{figure}
-	\includegraphics[width=0.7\linewidth]{Pictures/map-sminus-2qb3-log.pdf}
+	\includegraphics[width=0.5\linewidth]{Pictures/map-sminus-2qb3-log.pdf}
 	\caption{Analytical solution using the expansion of the density matrix. Arrows denote the identified transitions, where $\Delta = \sqrt{16 J^2 + \alpha^2}$, $\omega/2\pi = 4$ GHz, $\alpha/\pi = -181$ MHz, $J/2\pi = 50$ MHz, $\gamma \approx 3.2\, \mu\text{s}^{-1}$.}
 	\label{fig:map-sminus-2qb3-log}
 \end{figure}
@@ -158,43 +172,43 @@ There is another approach to find the resonant frequencies responsible for multi
 the Hamiltonian in the rotating frame does not depend on time explicitly. In addition it conserves excitation number, $N$, so it can be split into independent sectors with particular $N$ which we denote as $H_{(N)}$.
 In each sector we find eigenenergies:
 \begin{widetext}
-$$
-\begin{array}{ccc}
-H_{(1)} = \begin{pmatrix}
--\delta & J
-\\
-J & -\delta
-\end{pmatrix},
-\qquad &
-\delta = \pm J;
-\\[1em]
-H_{(2)} = \begin{pmatrix}
-\alpha - 2\delta & \sqrt{2} J & 0
-\\
-\sqrt{2} J & - 2\delta & \sqrt{2} J
-\\
-0 & \sqrt{2} J & \alpha - 2 \delta
-\end{pmatrix},
-\qquad &
-\displaystyle
-\delta = \frac{\alpha \pm \sqrt{16 J^2 + \alpha^2}}{4}, \quad \delta = \frac{\alpha}{2};
-\\[2em]
-H_{(3)} = \begin{pmatrix}
-\alpha - 3\delta & 2J
-\\
-2 J & \alpha - 3 \delta
-\end{pmatrix},
-\qquad & \displaystyle
-\delta = \frac{\alpha \pm 2 J}{3};
-\\[2em]
-H_{(4)} = \begin{pmatrix}
-2 \alpha - 4\delta
-\end{pmatrix},
-\qquad & \displaystyle
-\delta = \frac{\alpha}{2}.
-\end{array}
-$$
-\end{widetext}
+	$$
+	\begin{array}{ccc}
+	H_{(1)} = \begin{pmatrix}
+	-\delta & J
+	\\
+	J & -\delta
+	\end{pmatrix},
+	\qquad &
+	\delta = \pm J;
+	\\[1em]
+	H_{(2)} = \begin{pmatrix}
+	\alpha - 2\delta & \sqrt{2} J & 0
+	\\
+	\sqrt{2} J & - 2\delta & \sqrt{2} J
+	\\
+	0 & \sqrt{2} J & \alpha - 2 \delta
+	\end{pmatrix},
+	\qquad &
+	\displaystyle
+	\delta = \frac{\alpha \pm \sqrt{16 J^2 + \alpha^2}}{4}, \quad \delta = \frac{\alpha}{2};
+	\\[2em]
+	H_{(3)} = \begin{pmatrix}
+	\alpha - 3\delta & 2J
+	\\
+	2 J & \alpha - 3 \delta
+	\end{pmatrix},
+	\qquad & \displaystyle
+	\delta = \frac{\alpha \pm 2 J}{3};
+	\\[2em]
+	H_{(4)} = \begin{pmatrix}
+	2 \alpha - 4\delta
+	\end{pmatrix},
+	\qquad & \displaystyle
+	\delta = \frac{\alpha}{2}.
+	\end{array}
+	$$
+\end{widetext}\onecolumngrid
 This result illustrates why there is no specific poles in series expansion of $\langle\sigma_{2}^-\rangle$ in seventh order: four-photon process is hidden by a two-photon process since both of them have the same energy. This accidental coincidence is a feature of this particular configuration with a couple of three-level systems. For example, if we treat transmons as  four-level systems, then this effect will not occur and four-photon process will be distinguishable.
 
 \section{Weak driving: transmons as two-level systems}
@@ -300,16 +314,25 @@ individual maxima split into peaks, which are due to the fact that the dressed s
 
 We stress that our simple model is applicable only at low drivings, when at maximum a single excitation is created in the system. Particularly, this model totally misses multiphoton excitation processes, which appear at the same order in $\Omega$ as the nonlinearities we here consider. However, there exists a domain of parameters at weak pumping, where multiphoton processes are not so pronounced, while transmission peaks splitting is discernable, see, e.g., Fig. 2. Particularly, this applies to blue-detuned regimes near resonances as transmons anharmonicities are negative.
 
-\begin{figure}[h!]
-\includegraphics[width=.5\linewidth]{map-s21-5qb2-w-log.pdf}
+\begin{figure}
+	\includegraphics[width=.5\linewidth]{map-s21-5qb2-w-log.pdf}
 	\caption{The behavior of $\ln |S_{21}|$ for the chain of qubits as
 		a function of $\omega_d$ and $\Omega$.}
 	\label{fig:qubitchain}
 \end{figure}
 
-	
+\section{Sample fabrication}
 
+To fabricate a five-qubit array we use the process similar to ones described in Ref. \cite{fedorov2020}. The process includes two stages: I) double-angle evaporation of a base layer and Josephson junctions (including transmon capacitor ground plane, waveguides, resonators and flux bias lines) followed by lift-off; II) resist-based low impedance crossover fabrication. 
 
+The fabrication process starts with multi-step wet chemical cleaning of a high-resistivity intrinsic silicon sample ($\rho$ > 10000 $\Omega\cdot$cm, 525 $\mu$m thick) in a Piranha solution (1:4) followed by native oxide removal in HF (1:50) for 120 seconds. Than a two-layer e-beam resists stack (100 nm thick AR-P e-beam resist on top of a 700 nm thick MMA copolymer) is spin coated followed by 50kV e-beam exposure. After development and oxygen plasma treatment, we performed e-beam shadow evaporation of Al-AlOx-Al Josephson junctions ($\pm$10.2$^\circ$, 25/45 nm) with Plassys PVD tool. Low impedance free-standing crossovers are fabricated by means of a four-stage [Chen, Z. et al. Fabrication and characterization of aluminum airbridges for superconducting microwave circuits. Appl. Phys. Lett. 104, 052602 (2014)] process: (I) air-bridges pads laser lithography, (II) 300 nm thick Al film e-beam deposition, (III) air-bridges topology laser lithography, (IV) Cl2-based dry plasma etching. Finally, we stripped both resist layers in an NMP-based solvent.
 
+\begin{figure}
+	\includegraphics[width=.49\linewidth]{sem1.png}
+		\includegraphics[width=.49\linewidth]{sem2.png}
+		\caption{SEM image of a five qubits array (left) and SEM image of a transmon capacitor and zoomed in Josephson junction SQUID (right). }
+\end{figure}	
+
+\bibliography{supplements}
 
 \end{document}
